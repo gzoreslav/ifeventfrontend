@@ -1,0 +1,5 @@
+<h2>ERROR <%= status %> : <%= message %></h2>
+
+<% if (status != 404 && error.stack) { %>
+<pre><%= error.stack %></pre>
+<% } %>
