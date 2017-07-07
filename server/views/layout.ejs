@@ -1,32 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-  <meta charset="UTF-8">
-  <title>Topheman - react-es6-isomorphic</title>
-  <% if(env === 'PROD') { %>
-  <link rel="stylesheet" type="text/css" href="/assets/css/main<%= hash %>.css">
-  <% } else { %>
-  <link rel="stylesheet" type="text/css" href="http://localhost:8080/assets/css/main.css">
-  <% } %>
-  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <meta property="og:image" content="http://ifcityevent.com/img/fb.jpg">
+    <meta property="og:image:secure_url" content="https://ifcityevent.com/img/fb.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="300">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="http://localhost:8080/assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:8080/assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:8080/assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="http://localhost:8080/assets/img/favicon/manifest.json">
+    <link rel="mask-icon" href="http://localhost:8080/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>IF City Event</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="http://localhost:8080/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://localhost:8080/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"
+            integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY"
+            crossorigin="anonymous"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"
+            integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo"
+            crossorigin="anonymous"></script>
+    <![endif]-->
+
+    <% if(env === 'PROD') { %>
+    <link rel="stylesheet" type="text/css" href="/assets/css/main<%= hash %>.css">
+    <% } else { %>
+    <link rel="stylesheet" type="text/css" href="http://localhost:8080/assets/css/main.css">
+    <% } %>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
 </head>
 <body>
-<% include ./partials/analytics %>
 <% if(typeof markup !== 'undefined') { %>
 <div id="app-container"><%- markup %></div>
 <% } %>
 <% if(typeof serializedState !== 'undefined') { %>
 <script type="text/javascript">
-var __DATA__ = <%- serializedState %>;
+    var __DATA__ = <%- serializedState %>;
 </script>
 <% } %>
 <% if(typeof error === 'undefined') { %>
-  <% if(env === 'PROD') { %>
-  <script src="/assets/js/bundle<%= hash %>.js"></script>
-  <% } else { %>
-  <script src="http://localhost:8080/webpack-dev-server.js"></script>
-  <script src="http://localhost:8080/assets/js/bundle.js"></script>
-  <% } %>
+<% if(env === 'PROD') { %>
+<script src="/assets/js/bundle<%= hash %>.js"></script>
+<% } else { %>
+<script src="http://localhost:8080/webpack-dev-server.js"></script>
+<script src="http://localhost:8080/assets/js/bundle.js"></script>
+<% } %>
 <% } %>
 </body>
-</html><%- bannerHtml %>
+</html>

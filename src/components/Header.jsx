@@ -1,9 +1,10 @@
 'use strict';
 
 import React from 'react';
+import {Link} from 'react-router';
 import _ from 'lodash';
-import {Nav, NavItem} from 'react-bootstrap';
-import {LinkContainer} from 'react-router-bootstrap';
+import {Nav, Navbar} from 'react-bootstrap';
+import classNames from 'classnames';
 
 
 const menuItems = [
@@ -22,62 +23,45 @@ const menuItems = [
     }
 ];
 
-export const RenderedNavItem = item => {
+export const RenderedNavItem = ({item, route}) => {
     return (
-        <NavItem
-            key={`la-${item.id}`}
-            eventKey={item.id}
-        >
-            {item.title}
-        </NavItem>
-    );
-};
-
-export const RenderedNavLink = item => {
-    return (
-        <div
-            key={`lc-${item.id}`}
-            to={item.route}
-        >
-            {RenderedNavItem(item)}
-        </div>
+        <li className={classNames({active: route === item.route})}>
+            <Link to={`/${item.route}`}>
+                {item.title}
+            </Link>
+        </li>
     );
 };
 
 export const Menu = React.createClass({
     render() {
         let items = _(menuItems)
-            .map(item => <RenderedNavLink item={item}/>)
+            .map(item => <RenderedNavItem item={item} route={this.props.route}/>)
             .value();
         return (
-            <Nav>
+            <Nav bsStyle="pills" pullRight>
                 {items}
             </Nav>
         );
     }
 });
 
-export default class Header extends React.Component {
+export default React.createClass({
     render() {
         return (
-            <nav id="mainNav" className="navbar navbar-default navbar-custom navbar-fixed-top">
-                <div className="container">
-                    <div className="navbar-header page-scroll">
-                        <button type="button" className="navbar-toggle" data-toggle="collapse"
-                                data-target="#bs-example-navbar-collapse-1">
-                            <span className="sr-only">Toggle navigation</span> Меню <i className="fa fa-bars"/>
-                        </button>
-                        <a className="navbar-brand page-scroll" href="city" style={{padding: '0 0 0 15px'}}>
-                            <img style={{height: '100%'}}
-                                 src="http://localhost:8080/assets/images/logo-square-01.png"/>
+            <Navbar fixedTop>
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        <a href="/">
+                            <img src="http://localhost:8080/assets/img/logo-square-01.png" alt="logo"/>
                         </a>
-                    </div>
-
-                    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <Menu/>
-                    </div>
-                </div>
-            </nav>
+                    </Navbar.Brand>
+                    <Navbar.Toggle />
+                </Navbar.Header>
+                <Navbar.Collapse>
+                    <Menu route={this.props.route}/>
+                </Navbar.Collapse>
+            </Navbar>
         );
     }
-}
+});

@@ -1,16 +1,18 @@
 'use strict';
 
 import React from 'react';
-import {Route, IndexRoute} from 'react-router';
+import {Route, IndexRedirect} from 'react-router';
 import App from './components/App.jsx';
 import City from './components/City.jsx';
 import About from './components/About.jsx';
+import NotFound from './components/NotFound.jsx';
 
 
 export default (
     <Route path="/" component={App}>
-        <IndexRoute component={City}/>
         <Route path="city" component={City}/>
         <Route path="about" component={About}/>
-   </Route>
+        <IndexRedirect to="city"/>
+        <Route path="*" component={NotFound}/>
+    </Route>
 );

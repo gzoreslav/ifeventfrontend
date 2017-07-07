@@ -12,4 +12,4 @@ httpService.getInstance(httpServiceConfiguration);//will keep config in singleto
 //I use dependency injection, in the one place that won't be executed in node : the client side bootstrap
 
 const history = createBrowserHistory();
-ReactDOM.render(<Router history={history}>{routes}</Router>, document.getElementById('app-container'))
+ReactDOM.render(<Router history={history}>{routes}</Router>, document.getElementById('app-container'));

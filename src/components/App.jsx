@@ -7,14 +7,18 @@ import React from 'react';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 
-const App = ({children}) => (
-  <div>
-    <Header title="react-es6-isomorphic"/>
-    <div className="container">
-      {children}
-    </div>
-    <Footer/>
-  </div>
-);
+const App = React.createClass({
+    render() {
+        return (
+            <div>
+                <Header route={this.props.routes[1].path}/>
+                <div className="container main-container">
+                    {this.props.children}
+                </div>
+                <Footer/>
+            </div>
+        );
+    }
+});
 
 export default App;
