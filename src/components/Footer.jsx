@@ -2,15 +2,31 @@
 
 import React from 'react';
 
-import TwitterButton from './common/TwitterButton.jsx';
-
 const Footer = () => (
-  <footer className="footer container">
-    <p>
-      ©2015 <a href="http://labs.topheman.com/">labs.topheman.com</a> - Christophe Rosset<br/>
-      <TwitterButton/>
-    </p>
-  </footer>
+    <footer>
+        <div className="container">
+            <div className="row">
+                <div className="col-md-4">
+                    <span className="copyright">Copyright &copy; IF City Event 2017</span>
+                </div>
+                <div className="col-md-4">
+                    <ul className="list-inline social-buttons">
+                        <li>
+                            <a target="_blank" href="https://www.facebook.com/myifevent">
+                                <i className="fa fa-facebook"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div className="col-md-4">
+                    <ul className="list-inline quicklinks">
+                        <li><a href="#">Умови використання</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 );
 
 export default Footer;
