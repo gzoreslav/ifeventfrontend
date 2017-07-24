@@ -1,0 +1,27 @@
+.time-wrapper {
+  clear: both;
+
+  &:not(:first-child) {
+    padding-top: 30px;
+  }
+
+  > h3 {
+    padding-top: 5px;
+    border-top: 1px solid #e5e5e5;
+  }
+
+}
+
+span.counter {
+  font-size: inherit;
+  float: right;
+}
+
+.btn-refresh {
+  float: right;
+  margin-top: 20px;
+}
+
+.no-data {
+  color: #ccc;
+}

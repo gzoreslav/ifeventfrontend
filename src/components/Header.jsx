@@ -12,11 +12,9 @@ const menuItems = [
         title: 'Місто',
         route: 'city'
     }, {
-        title: 'RUN',
-        route: 'run'
-    }, {
         title: 'Мої події',
-        route: 'my'
+        route: 'my',
+        disabled: true
     }, {
         title: 'Проект',
         route: 'about'
@@ -25,7 +23,7 @@ const menuItems = [
 
 export const RenderedNavItem = ({item, route}) => {
     return (
-        <li className={classNames({active: route === item.route})}>
+        <li className={classNames({active: route === item.route, disabled: item.disabled})}>
             <Link to={`/${item.route}`}>
                 {item.title}
             </Link>
@@ -53,7 +51,7 @@ export default React.createClass({
                 <Navbar.Header>
                     <Navbar.Brand>
                         <a href="/">
-                            <img src="http://localhost:8080/assets/img/logo-square-01.png" alt="logo"/>
+                            <img src="/assets/img/logo-square-01.png" alt="logo"/>
                         </a>
                     </Navbar.Brand>
                     <Navbar.Toggle />

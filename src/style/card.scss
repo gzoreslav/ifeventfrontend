@@ -3,7 +3,7 @@
   float: left;
   overflow: hidden;
   padding: 15px;
-  height: 400px;
+  height: 470px;
   color: #333;
 }
 
@@ -92,4 +92,13 @@
 
 .card .footer a {
   float: right;
+}
+
+.card {
+
+  .card-place {
+    line-clamp: 2;
+    -moz-line-clamp: 2;
+    -webkit-line-clamp: 2;
+  }
 }
